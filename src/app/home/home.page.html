@@ -1,11 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
     <ion-title>
-     Pra fazer
+    To Do
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<ion-list>
+  <ion-item>Item 1</ion-item>
+  <ion-item>Item 2</ion-item>
+  <ion-item>Item 3</ion-item>
+  <ion-item>Item 3</ion-item>
+</ion-list>
 
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button (click)="ShowAdd()" color="dark">
+    <ion-icon name="add">
+
+    </ion-icon>
+  </ion-fab-button>
+
+</ion-fab>
 </ion-content>
