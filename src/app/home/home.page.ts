@@ -20,7 +20,7 @@ export class HomePage {
 
 
 
-
+//Metodo para que chamar um formulário  adicionar e cancelar ação
    async showAdd(){
     const alert = await this.alertCtrl.create({
       header: 'O que deseja fazer?',
@@ -56,15 +56,15 @@ export class HomePage {
 
 
 
-
+ // Método que adiciona e  atualiza o local storage
   async add(newTask : string){
     // VALIDA SE O USUARIO PREENCHEU A TASK=TAREFA
     if(newTask.trim().length < 1){
       const toast = await this.toastCtrl.create({
         message : 'Informe o que deseja fazer!',
         duration: 2000,
-        position : 'top',
-      // Vericar como mudar a cor do toast // cssClass: 'toast-scheme',
+        position : 'middle', // Está no meio da tela
+        color: 'dark' //cor preta
       });
       toast.present();
       return;
@@ -74,12 +74,12 @@ export class HomePage {
     this.updateLocalStorage();
   }
 
-
+  // Método que atualiza o local Storage
   updateLocalStorage(){
     localStorage.setItem('taskDB',JSON.stringify(this.tasks));
   }
 
-
+ //Método que dá as opções de marca, desmarca e cancelar
    async openActions(task: any){
     const actionSheet = await this.actionSheetCtrl.create({
       header:"O que deseja fazer?",
@@ -108,8 +108,7 @@ export class HomePage {
 
 
 
-
-
+ //Método de Excluir
   delete(task : any){
     this.tasks = this.tasks.filter(taskArray=>task != taskArray);
     this.updateLocalStorage();
