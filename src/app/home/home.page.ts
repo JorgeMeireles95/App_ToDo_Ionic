@@ -18,6 +18,9 @@ export class HomePage {
     }
   }
 
+
+
+
    async showAdd(){
     const alert = await this.alertCtrl.create({
       header: 'O que deseja fazer?',
@@ -36,13 +39,11 @@ export class HomePage {
           handler:()=>{
             console.log('clicked cancel')
           }
-
         },
         {
           text:'Adicionar',
           handler: (form)=>{
           // console.log(form.newTask);
-           
             this.add(form.newTask);
           }
         }
@@ -50,6 +51,9 @@ export class HomePage {
     });
     await alert.present();
   }
+
+
+
 
 
 
@@ -62,15 +66,11 @@ export class HomePage {
         position : 'top',
       // Vericar como mudar a cor do toast // cssClass: 'toast-scheme',
       });
-
       toast.present();
       return;
     }
-
     let task = {name : newTask, done: false};
-
     this.tasks.push(task);
-
     this.updateLocalStorage();
   }
 
@@ -101,7 +101,17 @@ export class HomePage {
       }]
     });
     await actionSheet.present();
-
   }
 
+
+
+
+
+
+
+
+  delete(task : any){
+    this.tasks = this.tasks.filter(taskArray=>task != taskArray);
+    this.updateLocalStorage();
+  }
 }
